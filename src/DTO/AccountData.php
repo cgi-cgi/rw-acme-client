@@ -13,7 +13,7 @@ class AccountData extends Data
         public string $url,
         public array $key,
         public string $status,
-        public array $contact,
+        public array|string $contact,
         public string $agreement,
         public string $createdAt,
     ) {
@@ -28,7 +28,7 @@ class AccountData extends Data
             url: $url,
             key: $response->getBody()['key'],
             status: $response->getBody()['status'],
-            contact: $response->getBody()['contact'],
+            contact: $response->getBody()['contact'] ?? '',
             agreement: $response->getBody()['agreement'] ?? '',
             createdAt: $response->getBody()['createdAt']
         );
